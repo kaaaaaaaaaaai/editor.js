@@ -328,6 +328,12 @@ export default class LinkInlineTool implements InlineTool {
    * @returns {boolean}
    */
   private validateURL(str: string): boolean {
+    try {
+      // check url format
+      const url = new URL(str);
+    } catch (e) {
+      return false;
+    }
     /**
      * Don't allow spaces
      */
